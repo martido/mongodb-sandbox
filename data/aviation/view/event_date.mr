@@ -1,0 +1,28 @@
+MAP <<
+function() {
+    var when = new Date(Date.parse(this['Event Date']));
+    var fatalities = 0;
+    if (this['Total Fatal Injuries'] != "") {
+        fatalities = parseInt(this['Total Fatal Injuries']);
+    }
+    emit({
+        year: when.getFullYear(),
+        month: when.getMonth()
+    }, {
+        crashes: 1,
+        fatalities: fatalities
+    });
+}
+>>
+
+REDUCE <<
+function(key, values) {
+    var crashes = 0;
+    var fatalities = 0;
+    values.forEach(function(doc) {
+        crashes += doc.crashes;
+        fatalities += doc.fatalities;
+    })
+    return {crashes: crashes, fatalities: fatalities};
+}
+>>
