@@ -1,4 +1,4 @@
-require 'lib/aviation'
+require 'aviation'
 
 #crashes = Aviation::Crashes.new('aviation', 'crashes')
 #crashes.find_by_range(Time.utc(1994,1,1), Time.utc(1994,1,2))
