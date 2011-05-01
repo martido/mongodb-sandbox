@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'mongo'
-require '../connect'
+require 'connect'
 
 # A somewhat failed attempt to use a pre-computed view (of both the number
 # of accidents and the total number of fatalities grouped by year and month)
