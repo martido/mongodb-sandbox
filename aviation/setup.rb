@@ -72,7 +72,7 @@ class Setup
     end
 
     def create_views
-      Dir.glob("#{File.dirname(__FILE__)}/view/*.mr").sort.each do |file_name|
+      Dir.glob("#{File.dirname(__FILE__)}/*.mr").sort.each do |file_name|
         view_name = File.basename(file_name).chomp('.mr')
         contents = File.open(file_name, 'rb').read
         match_data = /MAP <<\s(.*?)>>.*REDUCE <<\s(.*?)>>/m.match(contents)
